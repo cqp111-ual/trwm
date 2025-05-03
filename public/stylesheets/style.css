@@ -2,3 +2,10 @@ body {
   padding: 50px;
 }
 
+.content {
+  padding: 20px;
+}
+
+.card {
+  margin: 5px;
+}

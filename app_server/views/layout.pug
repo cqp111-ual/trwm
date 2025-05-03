@@ -3,8 +3,25 @@ html
   head
     meta(viewport='width=device-width, initial-scale=1.0')
     title= title
-    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/lumen/bootstrap.min.css")
+    //- link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/lumen/bootstrap.min.css")
+    link(rel="stylesheet", href="https://bootswatch.com/5/quartz/bootstrap.min.css")
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css')
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous")
   body
-    block content
+    //- nav.navbar.fixed-top.navbar-expand-md.navbar-light.bg-light
+    nav.navbar.fixed-top.navbar-expand-md.bg-primary(data-bs-theme="dark")
+      .container
+        a.navbar-brand(href='/') Loc8r
+        button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarMain')
+          span.navbar-toggler-icon
+        #navbarMain.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto
+            li.nav-item
+              a.nav-link(href='/about') About
+    .container.content.mt-3
+      block content
+      footer 
+        .row 
+          .col-12 
+            small &copy; Loc8r 2025
