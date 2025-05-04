@@ -56,11 +56,14 @@ db.locations.insertMany([
     address: '125 High Street, Reading, RG6 1PS',
     rating: 3,
     facilities: ['Hot drinks', 'Food', 'Premium wifi'],
-    coords: [-0.9690884, 51.455041],
+    coords: { type: 'Point', coordinates: [-0.9690884, 51.455041] },
     openingTimes: [
       { days: 'Monday - Friday', opening: '7:00am', closing: '7:00pm', closed: false },
       { days: 'Saturday', opening: '8:00am', closing: '5:00pm', closed: false },
       { days: 'Sunday', closed: true }
+    ],
+    reviews: [
+      { author: 'Simon Holmes', rating: 5, createdOn: new Date('Jul 16, 2020'), reviewText: 'What a great place' }
     ]
   },
   {
@@ -68,7 +71,7 @@ db.locations.insertMany([
     address: 'Calle Francisco Gongora, 11',
     rating: 4,
     facilities: ['Hot drinks', 'Food', 'Premium wifi'],
-    coords: [-2.4500605, 36.8388697],
+    coords: { type: 'Point', coordinates: [-2.4500605, 36.8388697] },
     openingTimes: [
       { days: 'Monday - Friday', opening: '7:00am', closing: '7:00pm', closed: false },
       { days: 'Saturday', opening: '8:00am', closing: '5:00pm', closed: false },
@@ -80,7 +83,7 @@ db.locations.insertMany([
     address: 'Calle Tenor Iribarne, 19',
     rating: 4,
     facilities: ['Hot drinks', 'Food', 'Premium wifi'],
-    coords: [-2.4649475, 36.8412037],
+    coords: { type: 'Point', coordinates: [-2.4649475, 36.8412037] },
     openingTimes: [
       { days: 'Monday - Friday', opening: '7:00am', closing: '7:00pm', closed: false },
       { days: 'Saturday', opening: '8:00am', closing: '5:00pm', closed: false },
@@ -88,21 +91,6 @@ db.locations.insertMany([
     ]
   }
 ]);
-
-db.locations.updateOne(
-  { name: 'Starcups' },
-  {
-    $push: {
-      reviews: {
-        author: 'Simon Holmes',
-        _id: ObjectId(),
-        rating: 5,
-        timestamp: new Date("Jul 16, 2013"),
-        reviewText: "What a great place. I can't say enough good things about it."
-      }
-    }
-  }
-)
 
 quit()
 EOF

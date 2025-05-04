@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 mongoose.connect(dbURI)
     .then(() => console.log('Mongoose connected to ' + dbURI))
     .catch((err) => {
-        console.log('Mongoose connection error: ' + err);
+        console.error('Mongoose connection error: ' + err);
         process.exit(1);
     });
 
